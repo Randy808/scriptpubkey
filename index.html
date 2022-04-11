@@ -1,0 +1,94 @@
+<html style="/* font-family: sans-serif; */" class="focus-outline-visible">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.rawgit.com/dreampulse/computer-modern-web-font/master/fonts.css"
+    />
+    <style>
+      body {
+        font-family: "Computer Modern Sans", sans-serif;
+        min-width: auto;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="post">
+      <h1>Bitcoin's homegrown programming language</h1>
+      <p>
+        Bitcoin script is a programming language developed by Satoshi Nakamoto
+        for the purpose of programatically declaring the conditions in which
+        Bitcoin can be spent. Bitcoin script is a core component of the Bitcoin
+        protocol and can be found in the source code of any protocol-compliant
+        Bitcoin node software. Script was created as part of the first public
+        implementation of the Bitcoin software released in 2008 and continues to
+        be a vital part of the codebase today. The necessity for script came
+        about when Satoshi acknowledged and tackled one of the limitations of
+        developing a consensus protocol -- slow adoption to change. Thus, the
+        long-term functionality of Bitcoin would be dependent on the design
+        decisions of the initial protocol implementation.
+        <a
+          href="http://satoshinakamoto.me/2010/06/17/re-transactions-and-scripts-dup-hash160-equalverify-checksig/#selection-73.235-73.366"
+          >Following this thought process, 'script' was made to act as a robust
+          way to specify the spending condition of coins and not limit how a
+          user specifies who can spend their coins.</a
+        >
+      </p>
+
+      <br />
+
+      <p>
+        Bitcoin script is a stack-based programming language with no loops,
+        therefore excluding it from membership in the turing-complete group of
+        programming languages. A
+        <a href="https://en.wikipedia.org/wiki/Parsing">parser</a> was
+        <a
+          href="https://github.com/bitcoin/bitcoin/blob/4405b78d6059e536c36974088a8ed4d9f0f29898/script.cpp#L44"
+          >built into Bitcoin's first implementation</a
+        >
+        to support the evaluation of this language and now has its specification
+        as part of the consensus protocol. Because Bitcoin script is used to
+        specify the spending conditions of individual amounts of Bitcoin, it is
+        stored on the blockchain as part of every transaction spending Bitcoin.
+        Bitcoin script's usage is unavoidable and at a high level, Bitcoin
+        cannot be sent to another individual without it. Although the
+        development of Bitcoin script was used to support the more complex
+        use-cases of payment Satoshi mentioned in the early days ("Escrow
+        transactions, bonded contracts, third party arbitration, multi-party
+        signature, etc."), most transactions follow the same structure of just
+        attempting to send money to a particular address.
+      </p>
+
+      <br />
+
+      <p>
+        Today the Bitcoin script language is primarily maintained by the open
+        source contributors to the Bitcoin core codebase, and changes to the
+        script are proposed as rfc-like documents called Bitcoin improvement
+        proposals (BIPs). The high-level Bitcoin script specification consists
+        of operations in the format of OP\_{command} with each operation/keyword
+        mapping to an unsigned integer. The parser for the language within the
+        Bitcoin core codebase reads the operation-mapped integers as hex for
+        it's input while the name for the operations aren't used in the script
+        code itself over concern for the size of these transactions. Changes are
+        typically proposed to the Bitcoin script language when new functionality
+        is desired,or a security vulnerability with the existing language is
+        found. Changes to script are imperative for the growth of Bitcoin as a
+        protocol and to allow the use-cases of Bitcoin to grow along with the
+        needs of its users. This blog will be dedicated to exploring all kinds
+        of Bitcoin topics but I thought I should start off explaining where the
+        name comes from, which is the programmatic name of the script spending
+        condition -- 'scriptpubkey'. For these beginning posts at the very least
+        I will discuss script more extensively and plan to look at Bitcoin code
+        snippets, historical and otherwise. Look forward to more posts in the
+        future!
+      </p>
+    </div>
+  </body>
+</html>
